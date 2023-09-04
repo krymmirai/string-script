@@ -40,7 +40,7 @@ stat:NewButton("Sever Hop", "ButtonInfo", function()
     until Server
     TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
 end)
-stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftControl, function()
+stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.KeypadZero, function()
 	Library:ToggleUI()
 end)
 --TelePort
