@@ -1,0 +1,89 @@
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+    end
+    wait()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+--UI Library Window
+
+local Window = Library.CreateLib(" Zero2 Hub / Legends Re:Written (Infinity Raid) ", "Midnight")
+local status = Window:NewTab("status")
+local Tab = Window:NewTab("???")
+local Teleport2 = Window:NewTab("Teleport")
+
+--status
+local stat = status:NewSection("Status")
+stat:NewLabel("Name : ".. game.Players.LocalPlayer.Character.Name .." [Dev]")
+stat:NewLabel("PlaceID : ".. game.PlaceId .."")
+stat:NewButton("Copy PlaceId", "ButtonInfo", function()
+    setclipboard(game.PlaceId)
+end)
+stat:NewLabel("JobID : ".. game.JobId .."")
+stat:NewButton("Copy JobId", "ButtonInfo", function()
+    setclipboard(game.JobId)
+end)
+stat:NewLabel("Script Make By SadThudatinh (Owner)")
+stat:NewButton("Sever Hop", "ButtonInfo", function()
+    local Http = game:GetService("HttpService")
+    local TPS = game:GetService("TeleportService")
+    local Api = "https://games.roblox.com/v1/games/"
+    local _place = game.PlaceId
+    local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+    function ListServers(cursor)
+      local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+      return Http:JSONDecode(Raw)
+    end
+    local Server, Next; repeat
+      local Servers = ListServers(Next)
+      Server = Servers.data[10]
+      Next = Servers.nextPageCursor
+    until Server
+    TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+end)
+stat:NewButton("Dark Dex", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4"))()
+end)
+
+stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.RightControl, function()
+	Library:ToggleUI()
+end)
+
+--???
+local write = Tab:NewSection("find location")
+write:NewButton("Copy location", "ButtonInfo", function()
+  local a = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+setclipboard(tostring(a))
+end)
+--Teleport
+local tele = Teleport2:NewSection("Teleport")
+
+
+  tele:NewButton("Akaza", "ButtonInfo", function()
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
+  
+  tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(511.25, -346.88, 1460.78)})
+  tween:Play()
+  end)
+
+  tele:NewButton("Law", "ButtonInfo", function()
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
+  
+  tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-686.96 -136.77 677.35)})
+  tween:Play()
+  end)
+
+  tele:NewButton("Kurumi / summer 0h 1/2 ", "ButtonInfo", function()
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
+  
+  tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(896.69 301.46 235.3)})
+  tween:Play()
+  end)
+
+  tele:NewButton("Zoro / Summer 17h10 - Enel / Spring 7h20 1/2 ", "ButtonInfo", function()
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
+  
+  tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(263.03 -425.08 236.71)})
+  tween:Play()
+  end)
+
