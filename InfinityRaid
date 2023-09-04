@@ -74,7 +74,7 @@ tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.
 tween:Play()
 end)
 
-tele:NewButton("Akaza", "ButtonInfo", function()
+tele:NewButton("Douma", "ButtonInfo", function()
   tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
 
 tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-686.96, -136.77, 677.35)})
