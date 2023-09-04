@@ -55,6 +55,14 @@ local a = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 
 setclipboard(tostring(a))
 end)
+write:NewButton("Teleport Lobby", "ButtonInfo", function()
+placeid = 6198225400  --change this to the place id you want
+tp = game:GetService('TeleportService')
+
+for i,v in pairs (game.Players:GetChildren()) do
+    tp:Teleport(placeid, v)
+end
+end)
 --Teleport
 local tele = Teleport2:NewSection("Teleport")
 
