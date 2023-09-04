@@ -66,21 +66,21 @@ local tele = Teleport2:NewSection("Teleport")
   tween:Play()
   end)
 
-  tele:NewButton("Law", "ButtonInfo", function()
+  tele:NewButton("Douma", "ButtonInfo", function()
     tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-686.96 -136.77 677.35)})
   tween:Play()
   end)
 
-  tele:NewButton("Kurumi / summer 0h 1/2 ", "ButtonInfo", function()
+  tele:NewButton("Elevator", "ButtonInfo", function()
     tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(896.69 301.46 235.3)})
   tween:Play()
   end)
 
-  tele:NewButton("Zoro / Summer 17h10 - Enel / Spring 7h20 1/2 ", "ButtonInfo", function()
+  tele:NewButton("Kokushibou", "ButtonInfo", function()
     tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(263.03 -425.08 236.71)})
