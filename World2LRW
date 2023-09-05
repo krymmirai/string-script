@@ -106,7 +106,6 @@ function Teleport()
         end)
     end
 end
-end)
 --???
 local write = Tab:NewSection("find location")
 write:NewButton("Copy location", "ButtonInfo", function()
