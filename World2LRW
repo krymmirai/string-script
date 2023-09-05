@@ -53,8 +53,8 @@ for i,v in pairs (game.Players:GetChildren()) do
 end
 end)
 --Teleport
-tele:NewLabel("Zoro 17h Anywhere / (Second Day)")
 local tele = Teleport2:NewSection("Teleport Location World 2")
+tele:NewLabel("Zoro 17h Anywhere / (Second Day)")
   tele:NewButton("Spawn", "ButtonInfo", function()
     tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
   
