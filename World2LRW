@@ -51,6 +51,9 @@ end
 end)
 --???
 local write = Tab:NewSection("find location")
+write:NewButton("Get position", "ButtonInfo", function()
+getposition()
+end)
 write:NewButton("Copy location", "ButtonInfo", function()
   local a = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 
@@ -133,8 +136,58 @@ local tele = Teleport2:NewSection("Teleport Location World 2")
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(4857.16699, 33.6200256, 7182.50439, -0.153119758, 8.36382839e-08, -0.988207638, -5.96374647e-08, 1, 9.38769915e-08, 0.988207638, 7.33086196e-08, -0.153119758)})
   tween:Play()
   end)
+-- position
+function getposition()
+spawn(function
+local ScreenGui = Instance.new("ScreenGui")
 
+local Frame = Instance.new("Frame")
+local ImageLabel = Instance.new("ImageLabel")
 
+function createButton()
+local X = Instance.new("TextLabel")
+X.Parent = ImageLabel
+X.BackgroundColor3 = Color3.new(1, 1, 1)
+X.BackgroundTransparency = 1
+X.Size = UDim2.new(0.3, 0, 1, 0)
+X.Font = Enum.Font.SourceSans
+X.FontSize = Enum.FontSize.Size14
+X.TextScaled = true
+X.TextSize = 14
+X.TextStrokeColor3 = Color3.new(1, 10, 1)
+X.TextStrokeTransparency = 0
+X.TextWrapped = true
+return X
+end
+
+function round(val)
+return math.floor( (val * 10^2) + 0.5) / (10^2)
+end
+
+local X = createButton()
+local Y = createButton()
+local Z = createButton()
+
+ScreenGui.Parent = game.CoreGui
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.new(1, 1, 1)
+Frame.BackgroundTransparency = 1
+Frame.Size = UDim2.new(1, 0, 1, 0)
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+ImageLabel.Size = UDim2.new(0.4, 0, 0.15, 0)
+ImageLabel.Image = "rbxassetidUndecided/401491488"
+Y.Position = UDim2.new(0.33, 0, 0, 0)
+Z.Position = UDim2.new(0.66, 0, 0, 0)
+
+while true do
+X.Text = round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.x)
+Y.Text = round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.y)
+Z.Text = round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.z)
+wait()
+end
+end)
 --severhop
 local PlaceID = game.PlaceId
 local AllIDs = {}
