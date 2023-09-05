@@ -33,6 +33,53 @@ end)
 stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.Backquote, function()
 Library:ToggleUI()
 end)
+
+--???
+local write = Tab:NewSection("find location")
+write:NewButton("Copy location", "ButtonInfo", function()
+local a = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+setclipboard(tostring(a))
+end)
+write:NewButton("Teleport Lobby", "ButtonInfo", function()
+placeid = 6198225400  --change this to the place id you want
+tp = game:GetService('TeleportService')
+
+for i,v in pairs (game.Players:GetChildren()) do
+    tp:Teleport(placeid, v)
+end
+end)
+--Teleport
+local tele = Teleport2:NewSection("Teleport")
+
+
+tele:NewButton("Akaza", "ButtonInfo", function()
+  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
+
+tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(511.25, -346.88, 1460.78)})
+tween:Play()
+end)
+
+tele:NewButton("Douma", "ButtonInfo", function()
+  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
+
+tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-686.96, -136.77, 677.35)})
+tween:Play()
+end)
+
+tele:NewButton("Elevator", "ButtonInfo", function()
+  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
+
+tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(896.69, 301.46, 235.3)})
+tween:Play()
+end)
+
+tele:NewButton("Kokushibou", "ButtonInfo", function()
+  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
+
+tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(263.03, -425.08, 236.71)})
+tween:Play()
+end)
 --severhop
 local PlaceID = game.PlaceId
 local AllIDs = {}
@@ -102,49 +149,3 @@ function Teleport()
         end)
     end
 end
---???
-local write = Tab:NewSection("find location")
-write:NewButton("Copy location", "ButtonInfo", function()
-local a = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-
-setclipboard(tostring(a))
-end)
-write:NewButton("Teleport Lobby", "ButtonInfo", function()
-placeid = 6198225400  --change this to the place id you want
-tp = game:GetService('TeleportService')
-
-for i,v in pairs (game.Players:GetChildren()) do
-    tp:Teleport(placeid, v)
-end
-end)
---Teleport
-local tele = Teleport2:NewSection("Teleport")
-
-
-tele:NewButton("Akaza", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(511.25, -346.88, 1460.78)})
-tween:Play()
-end)
-
-tele:NewButton("Douma", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-686.96, -136.77, 677.35)})
-tween:Play()
-end)
-
-tele:NewButton("Elevator", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(896.69, 301.46, 235.3)})
-tween:Play()
-end)
-
-tele:NewButton("Kokushibou", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(4, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(263.03, -425.08, 236.71)})
-tween:Play()
-end)
