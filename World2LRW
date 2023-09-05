@@ -122,7 +122,7 @@ tele:NewLabel("Zoro 17h Anywhere / (Second Day)")
   tween:Play()
   end)
 
-  tele:NewButton("Abyss Knight / (Second Day)", "ButtonInfo", function()
+  tele:NewButton("Abyss Knight Spring / (Second Day)", "ButtonInfo", function()
     tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(4508.2, -717.86, 6132.88)})
