@@ -36,7 +36,6 @@ end)
 
 --???
 local write = Tab:NewSection("find location")
-local write = Tab:NewSection("find location")
 write:NewButton("Bypass Holdbutton", "ButtonInfo", function()
 for i, v in pairs(workspace:GetDescendants()) do
 if v.ClassName == "ProximityPrompt" then
