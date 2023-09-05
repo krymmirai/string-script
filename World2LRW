@@ -186,6 +186,7 @@ Y.Text = round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.y)
 Z.Text = round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.z)
 wait()
 end
+end
 --severhop
 local PlaceID = game.PlaceId
 local AllIDs = {}
