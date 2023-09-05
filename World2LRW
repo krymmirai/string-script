@@ -74,67 +74,67 @@ end)
 local tele = Teleport2:NewSection("Teleport Location World 2")
 tele:NewLabel("Zoro 17h Anywhere / (Second Day)")
   tele:NewButton("Spawn", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(148.041397, 19.4699097, -268.378601, -0.62351948, 1.6382522e-08, 0.78180784, -9.94424099e-09, 1, -2.88855517e-08, -0.78180784, -2.57851891e-08, -0.62351948)})
   tween:Play()
   end)
   tele:NewButton("Flower village", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(4248.83936, -155.292557, 6417.83789, -0.534548163, 6.49811582e-08, 0.845138013, 5.20564711e-08, 1, -4.39626007e-08, -0.845138013, 2.04947757e-08, -0.534548163)})
   tween:Play()
   end)
   tele:NewButton("Magma Island", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-4533.1626, 20.0449944, 1632.26636, 0.999805808, -2.13855351e-08, -0.019705154, 2.24400107e-08, 1, 5.32915294e-08, 0.019705154, -5.37233653e-08, 0.999805808)})
   tween:Play()
   end)
   tele:NewButton("Law 15h Summer / (First Day) ", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(823.452271, 19.4699097, -880.761047, 0.592293501, -6.26468477e-08, -0.805722296, 5.14410452e-08, 1, -3.99376425e-08, 0.805722296, -1.77923916e-08, 0.592293501)})
   tween:Play()
   end)
 
   tele:NewButton("Kurumi 0h Summer / (First Day) ", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(647.0896, 886.672546, 3198.94556, -0.826378345, 8.51048867e-08, 0.563115299, 9.98914302e-08, 1, -4.54040849e-09, -0.563115299, 5.24982973e-08, -0.826378345)})
   tween:Play()
   end)
 
   tele:NewButton("Enel 7h Spring / (Fist Day)  ", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-6442.99365, 1640.76965, 4027.80176, -0.0785858259, -3.27651617e-09, -0.996907353, 7.64924479e-09, 1, -3.8896677e-09, 0.996907353, -7.93126098e-09, -0.0785858259)})
   tween:Play()
   end)
 
   tele:NewButton("Mihak 12h Fall / (Fist Day)", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-1960.84644, 263.858978, 5109.92822, -0.998436451, -9.58166613e-09, -0.0558985025, -1.44463375e-08, 1, 8.66227765e-08, 0.0558985025, 8.72948718e-08, -0.998436451)})
   tween:Play()
   end)
 
   tele:NewButton("Ice Dragon 11h Winter / (First Day)", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(6.86304426, 19.9561501, 8236.88086, 0.725485086, 3.67451447e-09, 0.688237906, 5.46169387e-10, 1, -5.91474558e-09, -0.688237906, 4.66695438e-09, 0.725485086)})
   tween:Play()
   end)
 
   tele:NewButton("Chains 3h  Spring / (Second Day)", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(4857.16699, 33.6200256, 7182.50439, -0.153119758, 8.36382839e-08, -0.988207638, -5.96374647e-08, 1, 9.38769915e-08, 0.988207638, 7.33086196e-08, -0.153119758)})
   tween:Play()
   end)
 
   tele:NewButton("Abyss Knight Fall / (Second Day)", "ButtonInfo", function()
-    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(3, Enum.EasingStyle.Linear) --Change Time
+    tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
   
   tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(4508.2, -717.86, 6132.88)})
   tween:Play()
