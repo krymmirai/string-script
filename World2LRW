@@ -38,8 +38,6 @@ stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.Backquote, function()
 	Library:ToggleUI()
 end)
 --severhop
-function Teleport()
-    spawn(function()
 local PlaceID = game.PlaceId
 local AllIDs = {}
 local foundAnything = ""
