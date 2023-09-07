@@ -9,7 +9,106 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib(" Zero2 Hub / Legends Re:Written (World 2) ", "Midnight")
 local status = Window:NewTab("status")
 local Tab = Window:NewTab("???")
+local Del = Window:NewTab("Delete Item")
 local Teleport2 = Window:NewTab("Teleport World 2")
+local Testdr = Window:NewTab("Testdropdown")
+
+--Del Item
+local delitem = Del:NewSection("Delete Item")
+
+delitem:NewToggle("Iron Shield ", "bruh", function(state)
+    enabled = false
+    if state then
+        enabled = true
+    else
+        enabled = false
+    end
+    print(enabled)
+    while enabled == true do
+        local args = {
+            [1] = game:GetService("Players").LocalPlayer,
+            [2] = "IronShield"
+        }
+        
+        game:GetService("ReplicatedStorage").Remotes.DropItem:FireServer(unpack(args))
+        
+        wait(0)
+        if enabled == false then
+            break
+        end
+    end
+  end)
+
+  delitem:NewToggle("Steel Shield", "bruh", function(state)
+    enabled = false
+    if state then
+        enabled = true
+    else
+        enabled = false
+    end
+    print(enabled)
+    while enabled == true do
+        local args = {
+            [1] = game:GetService("Players").LocalPlayer,
+            [2] = "SteelShield"
+        }
+        
+        game:GetService("ReplicatedStorage").Remotes.DropItem:FireServer(unpack(args))
+        
+        wait(0)
+        if enabled == false then
+            break
+        end
+    end
+  end)
+
+  delitem:NewToggle("Adamant Shield", "bruh", function(state)
+    enabled = false
+    if state then
+        enabled = true
+    else
+        enabled = false
+    end
+    print(enabled)
+    while enabled == true do
+        local args = {
+            [1] = game:GetService("Players").LocalPlayer,
+            [2] = "AdamantShield"
+        }
+        
+        game:GetService("ReplicatedStorage").Remotes.DropItem:FireServer(unpack(args))
+        
+        wait(0)
+        if enabled == false then
+            break
+        end
+    end
+  end)
+
+  delitem:NewToggle("Rune Shield", "bruh", function(state)
+    enabled = false
+    if state then
+        enabled = true
+    else
+        enabled = false
+    end
+    print(enabled)
+    while enabled == true do
+        local args = {
+            [1] = game:GetService("Players").LocalPlayer,
+            [2] = "RuneShield"
+        }
+        
+        game:GetService("ReplicatedStorage").Remotes.DropItem:FireServer(unpack(args))
+        
+        wait(0)
+        if enabled == false then
+            break
+        end
+    end
+  end)
+
+
 
 --status
 local stat = status:NewSection("Status")
