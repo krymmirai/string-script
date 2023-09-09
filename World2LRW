@@ -6,17 +6,17 @@ if not game:IsLoaded() then
     function Teleportmap(P1)
         local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if Distance < 150 then
-            Speed = 1000
+            Speed = 750
         elseif Distance < 200 then
-            Speed = 1000
+            Speed = 750
         elseif Distance < 300 then
-            Speed = 1000
+            Speed = 750
         elseif Distance < 500 then
-            Speed = 1000
+            Speed = 750
         elseif Distance < 1000 then
-            Speed = 1000
+            Speed = 750
         elseif Distance >= 1000 then
-            Speed = 1000
+            Speed = 750
         end
         game:GetService("TweenService"):Create(
             game.Players.LocalPlayer.Character.HumanoidRootPart,
