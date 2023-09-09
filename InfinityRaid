@@ -169,6 +169,7 @@ function Teleport()
     end
 end
 --light
+function light()
 game:GetService"Lighting".FogEnd = 1000000
 wait(0.1)
 if not _G.FullBrightExecuted then
@@ -277,4 +278,3 @@ end
 
 _G.FullBrightExecuted = true
 _G.FullBrightEnabled = not _G.FullBrightEnabled
-end
