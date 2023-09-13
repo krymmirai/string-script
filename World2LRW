@@ -185,6 +185,11 @@ write:NewToggle("Auto Dash", "name", function(nameF)
 write:NewButton("Delete Texture", "ButtonInfo", function()
    fpsboot()
     end)
+
+write:NewButton("Delete Grass", "ButtonInfo", function()
+    local showDecorations = false -- set this to true if you want to see decorations again
+    sethiddenproperty(game:GetService("Workspace").Terrain, "Decoration", showDecorations)
+         end)
 write:NewSlider("Speed", "Speed Hack", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
         getgenv().WalkSpeedValue = s; 
     local Player = game:service'Players'.LocalPlayer;
