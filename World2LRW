@@ -6,17 +6,17 @@ if not game:IsLoaded() then
     function Teleportmap(P1)
         local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if Distance < 150 then
-            Speed = 750
+            Speed = 1000
         elseif Distance < 200 then
-            Speed = 750
+            Speed = 1000
         elseif Distance < 300 then
-            Speed = 750
+            Speed = 1000
         elseif Distance < 500 then
-            Speed = 750
+            Speed = 1000
         elseif Distance < 1000 then
-            Speed = 750
+            Speed = 1000
         elseif Distance >= 1000 then
-            Speed = 750
+            Speed = 1000
         end
         game:GetService("TweenService"):Create(
             game.Players.LocalPlayer.Character.HumanoidRootPart,
@@ -158,7 +158,7 @@ stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.Backquote, function()
 end)
 
 --???
-local write = Tab:NewSection("find location")
+local write = Tab:NewSection("Misc")
 write:NewButton("Bypass Holdbutton", "ButtonInfo", function()
 for i, v in pairs(workspace:GetDescendants()) do
 if v.ClassName == "ProximityPrompt" then
@@ -166,14 +166,32 @@ v.HoldDuration = 0
 end
 end
 end)
-write:NewButton("Delete Texture", "ButtonInfo", function()
-    local ws = game:GetService("Workspace")
+write:NewToggle("Auto Dash", "name", function(nameF)
+        getgenv().name = nameF
+        if nameF then
+            dash();
+        end
+    end)
     
-    for i,v in pairs(ws:GetDescendants()) do
-       if v:IsA("Texture") then
-           v:Destroy()
-       end
+    function dash()
+        spawn(function()
+            while name == true do
+                local args = {[1] = 1}
+                game:GetService("Players").LocalPlayer.PlayerGui.Parkour.Script.Dash:FireServer()
+                wait(0)
+            end
+        end)
     end
+write:NewButton("Delete Texture", "ButtonInfo", function()
+   fpsboot()
+    end)
+write:NewSlider("Speed", "Speed Hack", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        getgenv().WalkSpeedValue = s; 
+    local Player = game:service'Players'.LocalPlayer;
+    Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+    Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+    end)
+    Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
     end)
 write:NewButton("FullBright", "ButtonInfo", function()
     light()
@@ -192,6 +210,8 @@ end)
 write:NewButton("Dark Dex", "ButtonInfo", function()
     loadstring(game:HttpGet("https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4"))()
 end)
+
+
 
 
 
@@ -361,6 +381,52 @@ function Teleport()
             end
         end)
     end
+end
+--fps
+function fpsboot()
+    local a = game
+    local b = a.Workspace
+    local c = a.Lighting
+    local d = b.Terrain
+    d.WaterWaveSize = 0
+    d.WaterWaveSpeed = 0
+    d.WaterReflectance = 0
+    d.WaterTransparency = 0
+    c.GlobalShadows = false
+    c.FogEnd = 9e9
+    c.Brightness = 0
+    settings().Rendering.QualityLevel = "Level01"
+    for e, f in pairs(a:GetDescendants()) do
+       if f:IsA("Part") or f:IsA("Union") or f:IsA("CornerWedgePart") or f:IsA("TrussPart") then
+           f.Material = "Plastic"
+           f.Reflectance = 0
+       elseif f:IsA("Decal") or f:IsA("Texture") then
+           f.Transparency = 0
+       elseif f:IsA("ParticleEmitter") or f:IsA("Trail") then
+           f.Lifetime = NumberRange.new(0)
+       elseif f:IsA("Explosion") then
+           f.BlastPressure = 0
+           f.BlastRadius = 0
+       elseif f:IsA("Fire") or f:IsA("SpotLight") or f:IsA("Smoke") or f:IsA("Sparkles") then
+           f.Enabled = false
+       elseif f:IsA("MeshPart") then
+           f.Material = "Plastic"
+           f.Reflectance = 0
+           f.TextureID = 10385902758728957
+       end
+    end
+    for e, g in pairs(c:GetChildren()) do
+       if
+           g:IsA("BlurEffect") or g:IsA("SunRaysEffect") or g:IsA("ColorCorrectionEffect") or g:IsA("BloomEffect") or
+               g:IsA("DepthOfFieldEffect")
+        then
+           g.Enabled = false
+       end
+    end
+    sethiddenproperty(game.Lighting, "Technology", "Compatibility")
+    wait()
+    local showDecorations = false -- set this to true if you want to see decorations again
+sethiddenproperty(game:GetService("Workspace").Terrain, "Decoration", showDecorations)
 end
 --light
 function light()
