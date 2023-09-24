@@ -2,6 +2,38 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
     end
     wait()
+    function Teleportmap(P1)
+        local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if Distance < 150 then
+            Speed = 800
+        elseif Distance < 200 then
+            Speed = 800
+        elseif Distance < 300 then
+            Speed = 800
+        elseif Distance < 500 then
+            Speed = 800
+        elseif Distance < 1000 then
+            Speed = 800
+        elseif Distance >= 1000 then
+            Speed = 800
+        end
+        game:GetService("TweenService"):Create(
+            game.Players.LocalPlayer.Character.HumanoidRootPart,
+            TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+            {CFrame = P1}
+        ):Play()
+        if _G.Stop_Tween==true then
+            game:GetService("TweenService"):Create(
+            game.Players.LocalPlayer.Character.HumanoidRootPart,
+            TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+                {CFrame = P1}
+            ):Cancel()
+        end
+        _G.Clip = true
+        wait(Distance/Speed)
+        _G.Clip = false
+    end
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
 --UI Library Window
@@ -9,6 +41,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib(" Zero2 Hub / Legends Re:Written (World 1) ", "Midnight")
 local status = Window:NewTab("status")
 local Tab = Window:NewTab("???")
+local Tab2 = Window:NewTab("Auto Farm")
 local Teleport = Window:NewTab("Teleport World 1")
 
 --status
@@ -41,120 +74,139 @@ end)
 stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.Backquote, function()
 	Library:ToggleUI()
 end)
+--Auto farm
+local auto = Tab2:NewSection("Auto Farm")
+auto:NewToggle("Auto Dash", "name", function(nameF)
+    getgenv().name = nameF
+    if nameF then
+        dash();
+    end
+end)
+
+function dash()
+    spawn(function()
+        while name == true do
+            local args = {[1] = 1}
+            game:GetService("Players").LocalPlayer.PlayerGui.Parkour.Script.Dash:FireServer()
+            wait(0)
+        end
+    end)
+end
+auto:NewToggle("Auto Fish", "name", function(nameA)
+    getgenv().name2 = nameA
+    if nameA then
+        fish();
+    end
+end)
+
+function fish()
+    spawn(function()
+        while name2 == true do
+            local args = {[1] = 1}
+            local ohInstance1 = workspace.FishingSpawns.Fishing
+
+game:GetService("Players").LocalPlayer.PlayerGui.Fish.Ado.catch:FireServer(ohInstance1)
+            wait(2)
+        end
+    end)
+end
+
 
 --???
-local write = Tab:NewSection("find location")
+local write = Tab:NewSection("Misc")
 write:NewButton("Bypass Holdbutton", "ButtonInfo", function()
-for i, v in pairs(workspace:GetDescendants()) do
-if v.ClassName == "ProximityPrompt" then
-v.HoldDuration = 0
-end
-end
-end)
+    for i, v in pairs(workspace:GetDescendants()) do
+    if v.ClassName == "ProximityPrompt" then
+    v.HoldDuration = 0
+    end
+    end
+    end)
+
+write:NewButton("Delete Texture", "ButtonInfo", function()
+       fpsboot()
+        end)
+    
+write:NewButton("Delete Grass", "ButtonInfo", function()
+        local showDecorations = false -- set this to true if you want to see decorations again
+        sethiddenproperty(game:GetService("Workspace").Terrain, "Decoration", showDecorations)
+             end)
+write:NewSlider("Speed", "Speed Hack", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+            getgenv().WalkSpeedValue = s; 
+        local Player = game:service'Players'.LocalPlayer;
+        Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+        Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+        end)
+        Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+        end)
+write:NewButton("FullBright", "ButtonInfo", function()
+        light()
+    end)
+write:NewButton("Sever Hop", "ButtonInfo", function()
+        Teleport()
+        end)
+write:NewButton("Get position", "ButtonInfo", function()
+    getposition()
+    end)
 write:NewButton("Copy location", "ButtonInfo", function()
-local a = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-
-setclipboard(tostring(a))
-end)
-write:NewButton("Teleport Lobby", "ButtonInfo", function()
-placeid = 6198225400  --change this to the place id you want
-tp = game:GetService('TeleportService')
-
-for i,v in pairs (game.Players:GetChildren()) do
-    tp:Teleport(placeid, v)
-end
-end)
+      local a = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    
+    setclipboard(tostring(a))
+    end)
+write:NewButton("Dark Dex", "ButtonInfo", function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4"))()
+    end)
 --TelePort
 local tele = Teleport:NewSection("Teleport Location World 1")
 tele:NewButton("World 2", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-655.196655, -2.91163874, 717.900696, -0.999970973, -1.39305465e-08, -0.00762101542, -1.47980037e-08, 1, 1.13767982e-07, 0.00762101542, 1.13877448e-07, -0.999970973)})
-tween:Play()
+    Teleportmap(CFrame.new(-655.196655, -3.41, 705.79))
 end)
 
 tele:NewButton("Spawn", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-712.413818, 7.76110554, 483.473999, 0.0820902511, -1.60763278e-08, -0.996624887, 6.95592028e-10, 1, -1.60734768e-08, 0.996624887, 6.262314e-10, 0.0820902511)})
-tween:Play()
+    Teleportmap(CFrame.new(-726.17, 7.76, 481.77))
 end)
 
 tele:NewButton("Meliodas", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-690.789368, 344.121155, 110.678223, 0.246081352, -9.56691171e-09, 0.969249189, -2.92012565e-08, 1, 1.7284302e-08, -0.969249189, -3.25566383e-08, 0.246081352)})
-tween:Play()
+    Teleportmap(CFrame.new(-698.36, 344.33, 121.53))
 end)
 
 tele:NewButton("GoLem", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-898.539917, 290.972809, -42.2034912, -0.21361208, 1.53430371e-08, 0.976918578, -2.90971491e-09, 1, -1.63417795e-08, -0.976918578, -6.33335606e-09, -0.21361208)})
-tween:Play()
+    Teleportmap(CFrame.new(-987.23, 295.93, -81.51))
 end)
 
 tele:NewButton("Kirito", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-2706.8064, -325.708069, -501.549286, -0.998622477, 1.21109638e-08, -0.052470237, 1.2111264e-08, 1, 3.12232268e-10, 0.052470237, -3.23678778e-10, -0.998622477)})
-tween:Play()
+    Teleportmap(CFrame.new(-2706.81, -325.71, -501.55))
 end)
 
 tele:NewButton("Regulus", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-2952.63159, -339.674225, -320.244171, -0.0986846536, -5.50773542e-08, 0.995118737, -7.6633448e-08, 1, 4.77478785e-08, -0.995118737, -7.15473973e-08, -0.0986846536)})
-tween:Play()
+    Teleportmap(CFrame.new(-2952, -339, -320))
 end)
 
 tele:NewButton("Paladin", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-4303.33838, -339.674225, -520.96698, 0.292988867, -4.22840962e-08, 0.956115842, -2.00461585e-08, 1, 5.0367742e-08, -0.956115842, -3.39236372e-08, 0.292988867)})
-tween:Play()
+    Teleportmap(CFrame.new(-4456, -399, -579))
 end)
 
 tele:NewButton("Rune Knight", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-3584.21289, -339.079834, -1055.40051, 0.747520447, 9.96108085e-09, -0.664238811, -1.96603578e-09, 1, 1.27836994e-08, 0.664238811, -8.25015878e-09, 0.747520447)})
-tween:Play()
+    Teleportmap(CFrame.new(-3588, -339, -1062))
 end)
 
 tele:NewButton("Garaa", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-3093.71362, -339.70874, -1540.59827, -0.169803247, 0.000895572652, 0.985477567, -2.85435108e-05, 0.999999583, -0.00091368804, -0.985477984, -0.000183276177, -0.169803157)})
-tween:Play()
+    Teleportmap(CFrame.new(-3014, -339, -1588))
 end)
 
-tele:NewButton("Emilia House", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(259.15271, 19.3684311, -507.031189, -0.293529302, 1.01020092e-09, 0.955950081, -6.16640516e-10, 1, -1.24609334e-09, -0.955950081, -9.55242441e-10, -0.293529302)})
-tween:Play()
+tele:NewButton("Elsa", "ButtonInfo", function()
+    Teleportmap(CFrame.new(922, -225, -515))
 end)
 
 tele:NewButton("Broly", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-991.387878, 33.4375877, -1632.62366, -0.0209344439, -3.381545e-08, 0.999780834, -1.95333705e-08, 1, 3.34138512e-08, -0.999780834, -1.88295903e-08, -0.0209344439)})
-tween:Play()
+    Teleportmap(CFrame.new(-991, 33, -1632))
 end)
 
 tele:NewButton("Michkal", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(5, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-1056.98132, 42.9300957, -1835.9325, -0.706210136, 2.64253064e-08, -0.708002269, 5.22471399e-09, 1, 3.2112272e-08, 0.708002269, 1.8978902e-08, -0.706210136)})
-tween:Play()
+    Teleportmap(CFrame.new(-1058, 42, -1834))
 end)
 
 tele:NewButton("Hiyay", "ButtonInfo", function()
-  tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(2, Enum.EasingStyle.Linear) --Change Time
-
-tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = CFrame.new(-2939.4292, 332.949829, -854.274597, -0.570078492, -2.24055929e-09, -0.821590245, -8.29659328e-08, 1, 5.48406369e-08, 0.821590245, 9.94274671e-08, -0.570078492)})
-tween:Play()
+    Teleportmap(CFrame.new(-2894, 332, -862))
 end)
 --???
 
@@ -243,6 +295,7 @@ function Teleport()
     end
 end
 --light
+function light()
 game:GetService"Lighting".FogEnd = 1000000
 wait(0.1)
 if not _G.FullBrightExecuted then
@@ -351,3 +404,4 @@ end
 
 _G.FullBrightExecuted = true
 _G.FullBrightEnabled = not _G.FullBrightEnabled
+end
