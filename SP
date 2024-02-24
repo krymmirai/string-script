@@ -48,21 +48,7 @@ end)
 --misc
 local misc = Misc:NewSection("Misc")
 
-misc:NewToggle("Auto Fast Loot", "bruh", function(state)
-    enabled = false
-    if state then
-        enabled = true
-    else
-        enabled = false
-    end
-    print(enabled)
-    while enabled == true do
-        for i, v in pairs(workspace:GetDescendants()) do
-            if v.ClassName == "ProximityPrompt" then
-            v.HoldDuration = 0
-            end
-            end
-  end)
+
 
 misc:NewButton("Fast Loot", "ButtonInfo", function()
     for i, v in pairs(workspace:GetDescendants()) do
