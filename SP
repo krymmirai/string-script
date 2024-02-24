@@ -1,0 +1,54 @@
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+    end
+    wait()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+--UI Library Window
+
+local Window = Library.CreateLib("Zero2 Hub / ", "Midnight")
+local status = Window:NewTab("Status")
+local Teleprort1 = Window:NewTab("Island Teleport")
+
+--status
+local stat = status:NewSection("Status")
+stat:NewLabel("Name : ".. game.Players.LocalPlayer.Character.Name .." [Dev]")
+stat:NewLabel("PlaceID : ".. game.PlaceId .."")
+stat:NewButton("Copy PlaceId", "ButtonInfo", function()
+    
+end)
+stat:NewLabel("JobID : ".. game.JobId .."")
+stat:NewButton("Copy JobId", "ButtonInfo", function()
+    setclipboard(game.JobId)
+end)
+stat:NewLabel("Script Make By SadThudatinh (Owner)")
+stat:NewButton("Sever Hop", "ButtonInfo", function()
+    local Http = game:GetService("HttpService")
+    local TPS = game:GetService("TeleportService")
+    local Api = "https://games.roblox.com/v1/games/"
+    local _place = game.PlaceId
+    local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+    function ListServers(cursor)
+      local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+      return Http:JSONDecode(Raw)
+    end
+    local Server, Next; repeat
+      local Servers = ListServers(Next)
+      Server = Servers.data[10]
+      Next = Servers.nextPageCursor
+    until Server
+    TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+end)
+stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftBracket, function()
+	Library:ToggleUI()
+end)
+
+--teleport island
+local tele1 = Teleprort1:NewSection("Teleport Island")
+tele1:NewButton("Starter Island", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1013.07, 34.67, -528.89)
+end)
+
+tele1:NewButton("Forgotten Isle", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-693.46, 44.02, -2054.02)
+end)
