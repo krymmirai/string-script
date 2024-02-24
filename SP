@@ -42,9 +42,6 @@ end)
 stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftBracket, function()
 	Library:ToggleUI()
 end)
-stat:NewButton("darkdex", "ButtonInfo", function()
-   loadstring(game:HttpGet("https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4"))() 
-end)
 
 --teleport island
 local tele1 = Teleprort1:NewSection("Teleport Island")
@@ -54,4 +51,44 @@ end)
 
 tele1:NewButton("Forgotten Isle", "ButtonInfo", function()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-693.46, 44.02, -2054.02)
+end)
+
+tele1:NewButton("Ape Realm", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(732.26, 42.25, -1347.29)
+end)
+
+tele1:NewButton("Arena", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1887.98, 43.09, -3051.65)
+end)
+
+tele1:NewButton("Autumnal Archipelago", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1822.4, 43.27, 103.66)
+end)
+
+tele1:NewButton("Chxmei", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(493.96, 34.6, -3093.56)
+end)
+
+tele1:NewButton("Cursed Isle", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2476.22, 33.88, -1310.13)
+end)
+
+tele1:NewButton("Frost Isle", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1469.63, 102.06, -204.62)
+end)
+
+tele1:NewButton("Niflheim Island", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2012.77, 118.11, -2324.72)
+end)
+
+tele1:NewButton("Orange Archipelago", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(41.55, 36.92, -50.29)
+end)
+
+tele1:NewButton("Shell Town", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(800.88, 35.51, 1206.51)
+end)
+
+tele1:NewButton("Sunset Isle", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-736.44, 36.26, 797.14)
 end)
