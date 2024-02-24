@@ -48,7 +48,7 @@ end)
 --misc
 local misc = Misc:NewSection("Misc")
 
-delitem:NewToggle("Auto Fast Loot", "bruh", function(state)
+misc:NewToggle("Auto Fast Loot", "bruh", function(state)
     enabled = false
     if state then
         enabled = true
