@@ -8,6 +8,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 
 local Window = Library.CreateLib("Zero2 Hub / ", "Midnight")
 local status = Window:NewTab("Status")
+local Misc = Window:NewTab("Misc")
 local Teleprort1 = Window:NewTab("Island Teleport")
 
 --status
@@ -43,6 +44,24 @@ stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftBracket, function
 	Library:ToggleUI()
 end)
 
+
+--misc
+local misc = Misc:NewSection("Misc")
+misc:NewButton("Fast Loot", "ButtonInfo", function()
+    for i, v in pairs(workspace:GetDescendants()) do
+    if v.ClassName == "ProximityPrompt" then
+    v.HoldDuration = 0
+    end
+    end
+    end)
+misc:NewSlider("Speed", "Speed Hack", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        getgenv().WalkSpeedValue = s; 
+    local Player = game:service'Players'.LocalPlayer;
+    Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+    Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+    end)
+    Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+    end)
 --teleport island
 local tele1 = Teleprort1:NewSection("Teleport Island")
 tele1:NewButton("Starter Island", "ButtonInfo", function()
