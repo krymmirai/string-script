@@ -42,6 +42,9 @@ end)
 stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftBracket, function()
 	Library:ToggleUI()
 end)
+stat:NewButton("darkdex", "ButtonInfo", function()
+    
+end)
 
 --teleport island
 local tele1 = Teleprort1:NewSection("Teleport Island")
