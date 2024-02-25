@@ -6,7 +6,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 
 --UI Library Window
 
-local Window = Library.CreateLib("Zero2 Hub / ", "Midnight")
+local Window = Library.CreateLib("Zero2 Hub / Second Piece ", "Midnight")
 local status = Window:NewTab("Status")
 local Misc = Window:NewTab("Misc")
 local autoskill = Window:NewTab("Auto Use Skill")
