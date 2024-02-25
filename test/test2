@@ -1,0 +1,283 @@
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+    end
+    wait()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+--UI Library Window
+
+local Window = Library.CreateLib("Zero2 Hub / ", "Midnight")
+local status = Window:NewTab("Status")
+local Misc = Window:NewTab("Misc")
+local autoskill = Window:NewTab("Auto Use Skill")
+local bosstele = Window:NewTab("Boss Teleport")
+local Teleprort1 = Window:NewTab("Island Teleport")
+
+--status
+local stat = status:NewSection("Status")
+stat:NewLabel("Name : ".. game.Players.LocalPlayer.Character.Name .." [Dev]")
+stat:NewLabel("PlaceID : ".. game.PlaceId .."")
+stat:NewButton("Copy PlaceId", "ButtonInfo", function()
+    
+end)
+stat:NewLabel("JobID : ".. game.JobId .."")
+stat:NewButton("Copy JobId", "ButtonInfo", function()
+    setclipboard(game.JobId)
+end)
+stat:NewLabel("Script Make By SadThudatinh (Owner)")
+stat:NewButton("Sever Hop", "ButtonInfo", function()
+    local Http = game:GetService("HttpService")
+    local TPS = game:GetService("TeleportService")
+    local Api = "https://games.roblox.com/v1/games/"
+    local _place = game.PlaceId
+    local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+    function ListServers(cursor)
+      local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+      return Http:JSONDecode(Raw)
+    end
+    local Server, Next; repeat
+      local Servers = ListServers(Next)
+      Server = Servers.data[10]
+      Next = Servers.nextPageCursor
+    until Server
+    TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+end)
+stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.LeftBracket, function()
+	Library:ToggleUI()
+end)
+--Boss tele
+local teleb = bosstele:NewSection("Teleport Boss")
+
+teleb:NewToggle("Shark", "name", function(nameF)
+    getgenv().name = nameF
+    if nameF then
+        tpb();
+    end
+end)
+
+function tpb()
+    spawn(function()
+        while name == true do
+            local args = {[1] = 1}
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2482.77, 43, -1315.27)
+            wait(0.1)
+        end
+    end)
+end
+
+teleb:NewToggle("Saber", "name", function(namea)
+    getgenv().name1 = namea
+    if namea then
+        tpb1();
+    end
+end)
+
+function tpb1()
+    spawn(function()
+        while name1 == true do
+            local args = {[1] = 1}
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-693.91, 44.02, -2054.23)
+            wait(0.1)
+        end
+    end)
+end
+
+teleb:NewToggle("Ichigo Frost", "name", function(nameb)
+    getgenv().name2 = nameb
+    if nameb then
+        tpb2();
+    end
+end)
+
+function tpb2()
+    spawn(function()
+        while name2 == true do
+            local args = {[1] = 1}
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1456.61, 102.06, -197.74)
+            wait(0.1)
+        end
+    end)
+end
+
+teleb:NewToggle("Ichigo atum", "name", function(namec)
+    getgenv().name3 = namec
+    if namec then
+        tpb3();
+    end
+end)
+
+function tpb3()
+    spawn(function()
+        while name3 == true do
+            local args = {[1] = 1}
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1850.47, 43.27, 99.56)
+            wait(0.1)
+        end
+    end)
+end
+
+teleb:NewToggle("Ichigo sunset", "name", function(named)
+    getgenv().name4 = named
+    if named then
+        tpb4();
+    end
+end)
+
+function tpb4()
+    spawn(function()
+        while name4 == true do
+            local args = {[1] = 1}
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-725.85, 37.75, 885.29)
+            wait(0.1)
+        end
+    end)
+end
+
+teleb:NewButton("World Boss", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2386.46, 119.63, -2325.71)
+end)
+
+--auto skill
+local autosk = autoskill:NewSection("Auto Use skill")
+
+autosk:NewToggle("Auto Z", "name", function(namezz)
+    getgenv().nameaz = namezz
+    if namezz then
+        atskz();
+    end
+end)
+
+function atskz()
+    spawn(function()
+        while nameaz == true do
+            local args = {[1] = 1}
+            keypress(0x5A)
+            wait(0.1)
+        end
+    end)
+end
+
+autosk:NewToggle("Auto X", "name", function(namexx)
+    getgenv().nameax = namexx
+    if namexx then
+        atskx();
+    end
+end)
+
+function atskx()
+    spawn(function()
+        while nameax == true do
+            local args = {[1] = 1}
+            keypress(0x58)
+            wait(0.1)
+        end
+    end)
+end
+
+autosk:NewToggle("Auto C", "name", function(namecc)
+    getgenv().nameac = namecc
+    if namecc then
+        atskc();
+    end
+end)
+
+function atskc()
+    spawn(function()
+        while nameac == true do
+            local args = {[1] = 1}
+            keypress(0x43)
+            wait(0.1)
+        end
+    end)
+end
+
+--misc
+local misc = Misc:NewSection("Misc")
+
+misc:NewButton("Fast Loot", "ButtonInfo", function()
+    for i, v in pairs(workspace:GetDescendants()) do
+    if v.ClassName == "ProximityPrompt" then
+    v.HoldDuration = 0
+    end
+    end
+    end)
+
+
+    misc:NewToggle("Auto Loot", "name", function(namel)
+        getgenv().namel = namel
+        if namel then
+            atl();
+        end
+    end)
+    
+    function atl()
+        spawn(function()
+            while namel == true do
+                local args = {[1] = 1}
+                keypress(0x45)
+                wait(0.1)
+            end
+        end)
+    end
+
+    misc:NewButton("infinite yield", "ButtonInfo", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+        end)
+
+misc:NewSlider("Speed", "Speed Hack", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+        getgenv().WalkSpeedValue = s; 
+    local Player = game:service'Players'.LocalPlayer;
+    Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+    Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+    end)
+    Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+    end)
+--teleport island
+local tele1 = Teleprort1:NewSection("Teleport Island")
+tele1:NewButton("Starter Island", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1013.07, 34.67, -528.89)
+end)
+
+tele1:NewButton("Forgotten Isle", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-693.46, 44.02, -2054.02)
+end)
+
+tele1:NewButton("Ape Realm", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(732.26, 42.25, -1347.29)
+end)
+
+tele1:NewButton("Arena", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1887.98, 43.09, -3051.65)
+end)
+
+tele1:NewButton("Autumnal Archipelago", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1822.4, 43.27, 103.66)
+end)
+
+tele1:NewButton("Chxmei", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(493.96, 34.6, -3093.56)
+end)
+
+tele1:NewButton("Cursed Isle", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2476.22, 33.88, -1310.13)
+end)
+
+tele1:NewButton("Frost Isle", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1469.63, 102.06, -204.62)
+end)
+
+tele1:NewButton("Niflheim Island", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(2012.77, 118.11, -2324.72)
+end)
+
+tele1:NewButton("Orange Archipelago", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(41.55, 36.92, -50.29)
+end)
+
+tele1:NewButton("Shell Town", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(800.88, 35.51, 1206.51)
+end)
+
+tele1:NewButton("Sunset Isle", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-736.44, 36.26, 797.14)
+end)
