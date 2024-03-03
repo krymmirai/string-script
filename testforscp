@@ -1,0 +1,38 @@
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Đang Bẻ Khóa", -- Required
+	Text = "By pass Key" -- Required
+})
+wait(1.5)
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Đang Bẻ Khóa", -- Required
+	Text = "33%" -- Required
+})
+wait(1.5)
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Đang Bẻ Khóa", -- Required
+	Text = "54%" -- Required
+})
+wait(1.5)
+
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Đang Bẻ Khóa", -- Required
+	Text = "85%" -- Required
+})
+wait(1.5)
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Đang Bẻ Khóa", -- Required
+	Text = "97%" -- Required
+})
+wait(1)
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Đang Bẻ Khóa", -- Required
+	Text = "Chờ tí làm gì căng" -- Required
+})
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Đang Bẻ Khóa", -- Required
+	Text = "Bẻ Khóa thành công Key = ip" -- Required
+})
+wait()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/krymmirai/another/main/test",true))()
