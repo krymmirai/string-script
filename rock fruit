@@ -1,0 +1,331 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/LPO081/Ui-or/main/README.md')))()
+
+
+
+local Window = OrionLib:MakeWindow({
+		Name = "SSS HUB • Rock Fruit",
+		HidePremium = false,
+		SaveConfig = true,
+		ConfigFolder = "OrionTest",
+        IntroText = "BY NOOB-SCRIPT V2"       
+}) 
+
+
+
+local AutoFarmTab = Window:MakeTab({
+	Name = "Auto Farm",
+	Icon = "rbxassetid://7733765398",
+	PremiumOnly = false
+})
+
+
+Wapon = {}
+for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+    if v:IsA("Tool") then
+       table.insert(Wapon ,v.Name)
+    end
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
+    if v:IsA("Tool") then
+       table.insert(Wapon, v.Name)
+    end
+end
+
+
+MonName = {
+  "BaconHair",
+  "Bacon XD",
+  "Bacon lvl.15",
+  "Bacon +Exp.2X",
+  "Bacon Buggy",
+  "Bacon Big",
+  "Bacon Red",
+  "Bacon Blue",
+  "Bacon Fan",
+  "Boss King",
+  "Boss Snow",
+  "Bacon T-Pose",
+  "Bacon curse",
+  "Bacon BlindFord",
+  "Bacon Real",
+  "Bacon angry",
+  "Bacon Snow",
+  "Bacon tino",
+  "Skeleton",
+  "Bacon Candy",
+  "Dark T-Pose",
+  "Bacon Hollow",
+  "Bacon Magic",
+  "Bacon Robux",
+  "Samurai",
+  "Bacon Santa",
+  "Crocodile",
+  "NineTailUser",
+  "SamuraiV2",
+  "Vergil Fake",
+  "Isshiki",
+  "Black",
+  "Bacon The Boss",
+  "Demon",
+  "Bacon Smoke",
+  "Bacon True",
+  "Shadow Monster",
+  "Bacon enel",
+  "Bacon zeus",
+  "Curse",
+  "Boss T-Pose"
+}
+
+
+
+Weapon_Tab = AutoFarmTab:AddDropdown({
+	Name = "Select Weapon",
+	Default = nil,
+	Options = Wapon,
+	Callback = function(Value)
+		_G.Weapon = Value
+	end    
+})
+
+AutoFarmTab:AddButton({
+    Name = "Refresh Weapon",
+    Callback = function()
+    Wapon = {}
+        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+    if v:IsA("Tool") then
+       table.insert(Wapon ,v.Name)
+    end
+end
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do  
+    if v:IsA("Tool") then
+       table.insert(Wapon, v.Name)
+    end
+end
+              Weapon_Tab:Refresh(Wapon,true)
+      end    
+})
+
+AutoFarmTab:AddDropdown({
+	Name = "Select Monster",
+	Default = nil,
+	Options = MonName,
+	Callback = function(Value)
+		_G.Monster = Value
+	end    
+})
+
+
+function TP(CFrame)
+    pcall(function()
+        game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame
+    end)
+end
+
+
+function EquipWeapon(ToolSe)
+		if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
+			Tool = game.Players.LocalPlayer.Backpack:WaitForChild(ToolSe)
+			wait(.1)
+			game.Players.LocalPlayer.Character.Humanoid:EquipTool(Tool)
+	end
+end
+
+
+
+AutoFarmTab:AddToggle({
+	Name = "Auto Farm Monster",
+	Default = false,
+	Callback = function(Value)
+        pcall(function()
+		_G.Auto_Farm_Monster = true
+        _G.NOCLIP = Value
+if Value then
+    AutoFarmMonster()
+    else
+        _G.Auto_Farm_Monster = false
+        NoclipToFly:Destroy()
+       game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
+          end
+     end)
+end    
+})
+
+
+spawn(function()
+    pcall(function()
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if _G.NOCLIPRanbow then
+                if not game:GetService("Workspace"):FindFirstChild("LOL") then
+                    Paertaiteen = Instance.new("Part")
+                    Paertaiteen.Name = "LOL"
+                    Paertaiteen.Parent = game.Workspace
+                    Paertaiteen.Anchored = true
+                    Paertaiteen.Transparency = 1
+                    Paertaiteen.Size = Vector3.new(15,0.5,15)
+                    Paertaiteen.Material = "Neon"
+                elseif game:GetService("Workspace"):FindFirstChild("LOL") then
+                    pcall(function()
+                    game.Workspace["LOL"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3.92,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+                    end)
+                end
+            else
+                if game:GetService("Workspace"):FindFirstChild("LOL") then
+                    game:GetService("Workspace"):FindFirstChild("LOL"):Destroy()
+                end
+            end
+        end)
+    end)
+ end)
+
+function AutoFarmMonster()
+
+    spawn(function()
+
+        while _G.Auto_Farm_Monster == true do wait()
+            pcall(function()
+                if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") and _G.Auto_Farm_Monster == true then
+                    NoclipToFly = Instance.new("BodyVelocity")
+                    NoclipToFly.Name = "BodyClip"
+                    NoclipToFly.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+                    NoclipToFly.MaxForce = Vector3.new(100000,100000,100000)
+                    NoclipToFly.Velocity = Vector3.new(0,0,0)
+                elseif _G.Auto_Farm_Monster == false then
+                    NoclipToFly:Destroy()
+                end
+                EquipWeapon(tostring(_G.Weapon))
+            for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+                if v:FindFirstChild("Humanoid") and v.Name ~= game.Players.LocalPlayer.Name  then
+                    v.Humanoid:ChangeState(11)
+                    v.Humanoid:ChangeState(14)
+                    v.HumanoidRootPart.Size = Vector3.new(10,30,10)
+                    v.HumanoidRootPart.Transparency = 1
+                    v.Humanoid.WalkSpeed = 0
+            if v.Name == tostring(_G.Monster) and v.Humanoid.Health >0 and v.Name ~= " " and v.Name ~= "" then
+                chosenDemon = false
+                if chosenDemon == false then
+				TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,4))
+game.Players.LocalPlayer.Character[_G.Weapon]:Activate()
+                v.Humanoid.HealthChanged:Connect(function()
+                    if v.Humanoid.Health <= 0 then
+                        chosenDemon = true
+                               end
+                          end)
+                     end
+                end
+           end
+      end
+end)
+      end
+           end)
+                 end
+
+
+spawn(function()
+	pcall(function()
+		game:GetService("RunService").Stepped:Connect(function()
+			if _G.NOCLIP == true then
+				for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
+					if v:IsA("BasePart") then
+						v.CanCollide = false    
+					end
+				end
+			end
+		end)
+	end)
+end)
+
+
+local Tab1 = Window:MakeTab({
+	Name = "Fishing",
+	Icon = "rbxassetid://7733765398",
+	PremiumOnly = false
+})
+
+Tab1:AddButton({
+    Name = "Get FishingRod",
+    Callback = function()
+fireclickdetector(workspace["NPC Haloween"]:GetChildren()[22].ClickDetector)
+      end    
+})
+
+Tab1:AddToggle({
+	Name = "Auto Fishing",
+	Default = false,
+	Callback = function(V)
+_G.AutoFishing = V
+end    
+})
+
+spawn(function()
+  while wait() do 
+    pcall(function()
+      if _G.AutoFishing then
+        repeat wait(1)
+          tool = "FishingRod"
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(tool))
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(61.4765968, 13.7846165, 399.416412, 0.422443807, 1.81586088e-08, 0.906389117, -4.80570712e-08, 1, 2.36410846e-09, -0.906389117, -4.45571082e-08, 0.422443807)
+   wait() 
+   local args = {
+    [1] = "bind",
+    [2] = Vector3.new(25.149612426757812, 1.149999976158142, 377.53265380859375)
+}
+
+game:GetService("Players").LocalPlayer.Character.FishingRod.LocalScript.RemoteFunction:InvokeServer(unpack(args))
+   until _G.AutoFishing == false
+      end 
+end)
+end 
+end)
+
+Tab1:AddToggle({
+	Name = "Auto Collect Fish",
+	Default = false,
+	Callback = function(Va)
+_G.AutoCollect = Va
+end    
+})
+
+spawn(function()
+  while wait() do 
+    pcall(function()
+      if _G.AutoCollect then
+        local args = {
+    [1] = "Change",
+    [2] = "Fish",
+    [3] = "Backpack"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Inventory"):FireServer(unpack(args))
+      end 
+    end) 
+  end 
+end) 
+
+Tab1:AddToggle({
+	Name = "AutoSell Fish",
+	Default = false,
+	Callback = function(Ve)
+_G.AutoSell = Ve
+end    
+})
+
+
+spawn(function()
+  while wait() do 
+    pcall(function()
+      if _G.AutoSell then
+    if game:GetService("Players").LocalPlayer.Backpack:WaitForChild("Fish") then 
+      tool = "Fish"
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(tool))
+wait() 
+ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(31.9438076, 16.9254551, 312.301117, -0.723338485, 6.38907736e-08, 0.690493643, 2.66271218e-08, 1, -6.46354223e-08, -0.690493643, -2.83674311e-08, -0.723338485)
+        end 
+        end 
+    end) 
+  end 
+end) 
+
+
+
+
+OrionLib:Init()
