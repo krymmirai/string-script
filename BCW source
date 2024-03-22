@@ -1,0 +1,408 @@
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+    end
+    wait()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+--UI Library Window
+
+local Window = Library.CreateLib("Zero2 Hub / Balanced Craftwars Overhaul (Develop Mode)", "Midnight")
+local status = Window:NewTab("Status")
+local Tsubol = Window:NewTab("Tsubol stuff")
+local afks = Window:NewTab("TOR Torment")
+local Misc = Window:NewTab("Misc")
+local Tab = Window:NewTab("Auto Press")
+
+--status
+local stat = status:NewSection("Status")
+stat:NewLabel("Name : ".. game.Players.LocalPlayer.Character.Name .." [Dev]")
+stat:NewLabel("PlaceID : ".. game.PlaceId .."")
+stat:NewButton("Copy PlaceId", "ButtonInfo", function()
+    
+end)
+stat:NewLabel("JobID : ".. game.JobId .."")
+stat:NewButton("Copy JobId", "ButtonInfo", function()
+    setclipboard(game.JobId)
+end)
+stat:NewLabel("Script Make By SadThudatinh (Owner)")
+stat:NewButton("Sever Hop", "ButtonInfo", function()
+    local Http = game:GetService("HttpService")
+    local TPS = game:GetService("TeleportService")
+    local Api = "https://games.roblox.com/v1/games/"
+    local _place = game.PlaceId
+    local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+    function ListServers(cursor)
+      local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+      return Http:JSONDecode(Raw)
+    end
+    local Server, Next; repeat
+      local Servers = ListServers(Next)
+      Server = Servers.data[10]
+      Next = Servers.nextPageCursor
+    until Server
+    TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+end)
+stat:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.KeypadZero, function()
+	Library:ToggleUI()
+end)
+--boss
+local tsu = Tsubol:NewSection("Tsubol Tool")
+tsu:NewToggle("Lock Boss", "bruh", function(state)
+    enabled = false
+    if state then
+        enabled = true
+    else
+        enabled = false
+    end
+    print(enabled)
+    while enabled == true do
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(355, 164, 289)
+        wait(0.1)
+        if enabled == false then
+            break
+        end
+    end
+  end)
+  tsu:NewButton("Create Place", "ALT", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(355, 164, 289)
+    wait(0.1)
+    local baseplate = Instance.new("Part")
+    baseplate.Parent = workspace
+    baseplate.Size = Vector3.new(50,3,50)
+    baseplate.Anchored = true
+    baseplate.Name = "Baseplate"
+    baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
+    end)
+tsu:NewToggle("Auto Equip", "bruh", function(state)
+        enabled = false
+        if state then
+            enabled = true
+        else
+            enabled = false
+        end
+        print(enabled)
+        while enabled == true do
+            for _, tool in ipairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+                if tool:IsA("Tool") then
+                     tool.Parent = game:GetService("Players").LocalPlayer.Character -- I didn't use Equip because the Equip function unequips any other tools in your character.
+                end
+            end
+            wait(2)
+            if enabled == false then
+                break
+            end
+        end
+    end)
+
+
+
+
+--???
+local Auto = Tab:NewSection("Auto Press")
+
+
+Auto:NewToggle("Press Mouse", "bruh", function(state)
+  enabled = false
+  if state then
+      enabled = true
+  else
+      enabled = false
+  end
+  print(enabled)
+  while enabled == true do
+    mouse1click()
+    wait(0.3)
+    mouse1click()
+      wait(10)
+      if enabled == false then
+          break
+      end
+  end
+end)
+
+Auto:NewToggle("Press Z X C", "bruh", function(state)
+    enabled = false
+    if state then
+        enabled = true
+    else
+        enabled = false
+    end
+    print(enabled)
+    while enabled == true do
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Z,false,game)
+        wait(2)
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.X,false,game)
+        wait(2)
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.C,false,game)
+        wait(2)
+        if enabled == false then
+            break
+        end
+    end
+  end)
+
+Auto:NewToggle("Press G", "bruh", function(state)
+  enabled = false
+  if state then
+      enabled = true
+  else
+      enabled = false
+  end
+  print(enabled)
+  while enabled == true do
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.G,false,game) 
+      wait(0.5)
+      if enabled == false then
+          break
+      end
+  end
+end)
+
+Auto:NewToggle("Press B", "bruh", function(state)
+  enabled = false
+  if state then
+      enabled = true
+  else
+      enabled = false
+  end
+  print(enabled)
+  while enabled == true do
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.B,false,game) 
+      wait(0.5)
+      if enabled == false then
+          break
+      end
+  end
+end)
+
+Auto:NewToggle("Press Z", "bruh", function(state)
+  enabled = false
+  if state then
+      enabled = true
+  else
+      enabled = false
+  end
+  print(enabled)
+  while enabled == true do
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Z,false,game) 
+      wait(0.5)
+      if enabled == false then
+          break
+      end
+  end
+end)
+
+
+Auto:NewToggle("Press X", "bruh", function(state)
+  enabled = false
+  if state then
+      enabled = true
+  else
+      enabled = false
+  end
+  print(enabled)
+  while enabled == true do
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.X,false,game) 
+      wait(0.5)
+      if enabled == false then
+          break
+      end
+  end
+end)
+
+Auto:NewToggle("Press C", "bruh", function(state)
+  enabled = false
+  if state then
+      enabled = true
+  else
+      enabled = false
+  end
+  print(enabled)
+  while enabled == true do
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.C,false,game) 
+      wait(0.5)
+      if enabled == false then
+          break
+      end
+  end
+end)
+--misc
+local miscs = Misc:NewSection("Misc")
+miscs:NewButton("Dark DEX", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
+end)
+
+miscs:NewButton("Tele Beneath", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-461, -43.9999695, 460, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+end)
+
+miscs:NewButton("Test Dame Place", "ButtonInfo", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(59.16, -200, -99989.06)
+end)
+
+miscs:NewButton("Light", "ButtonInfo", function()
+    dolight()
+end)
+
+miscs:NewSlider("Speed", "Speed Hack", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    getgenv().WalkSpeedValue = s; 
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+miscs:NewSlider("JumpPower", "JumpPower", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    getgenv().JumpPowerValue = s; 
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'JumpPower':Connect(function()
+Player.Character.Humanoid.JumpPower = getgenv().JumpPowerValue;
+end)
+Player.Character.Humanoid.JumpPower = getgenv().JumpPowerValue;
+end)
+miscs:NewButton("Inf Jump", "ButtonInfo", function()
+    if not game:IsLoaded() then
+        game.Loaded:Wait()
+        end
+        wait()
+        local InfiniteJumpEnabled = true
+        game:GetService("UserInputService").JumpRequest:connect(function()
+            if InfiniteJumpEnabled then
+                game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+            end
+        end)
+end)
+
+--light
+function dolight()
+    if not _G.FullBrightExecuted then
+
+        _G.FullBrightEnabled = false
+
+        _G.NormalLightingSettings = {
+            Brightness = game:GetService("Lighting").Brightness,
+            ClockTime = game:GetService("Lighting").ClockTime,
+            FogEnd = game:GetService("Lighting").FogEnd,
+            GlobalShadows = game:GetService("Lighting").GlobalShadows,
+            Ambient = game:GetService("Lighting").Ambient
+        }
+
+        game:GetService("Lighting"):GetPropertyChangedSignal("Brightness"):Connect(function()
+            if game:GetService("Lighting").Brightness ~= 1 and game:GetService("Lighting").Brightness ~= _G.NormalLightingSettings.Brightness then
+                _G.NormalLightingSettings.Brightness = game:GetService("Lighting").Brightness
+                if not _G.FullBrightEnabled then
+                    repeat
+                        wait()
+                    until _G.FullBrightEnabled
+                end
+                game:GetService("Lighting").Brightness = 1
+            end
+        end)
+
+        game:GetService("Lighting"):GetPropertyChangedSignal("ClockTime"):Connect(function()
+            if game:GetService("Lighting").ClockTime ~= 12 and game:GetService("Lighting").ClockTime ~= _G.NormalLightingSettings.ClockTime then
+                _G.NormalLightingSettings.ClockTime = game:GetService("Lighting").ClockTime
+                if not _G.FullBrightEnabled then
+                    repeat
+                        wait()
+                    until _G.FullBrightEnabled
+                end
+                game:GetService("Lighting").ClockTime = 12
+            end
+        end)
+
+        game:GetService("Lighting"):GetPropertyChangedSignal("FogEnd"):Connect(function()
+            if game:GetService("Lighting").FogEnd ~= 786543 and game:GetService("Lighting").FogEnd ~= _G.NormalLightingSettings.FogEnd then
+                _G.NormalLightingSettings.FogEnd = game:GetService("Lighting").FogEnd
+                if not _G.FullBrightEnabled then
+                    repeat
+                        wait()
+                    until _G.FullBrightEnabled
+                end
+                game:GetService("Lighting").FogEnd = 786543
+            end
+        end)
+
+        game:GetService("Lighting"):GetPropertyChangedSignal("GlobalShadows"):Connect(function()
+            if game:GetService("Lighting").GlobalShadows ~= false and game:GetService("Lighting").GlobalShadows ~= _G.NormalLightingSettings.GlobalShadows then
+                _G.NormalLightingSettings.GlobalShadows = game:GetService("Lighting").GlobalShadows
+                if not _G.FullBrightEnabled then
+                    repeat
+                        wait()
+                    until _G.FullBrightEnabled
+                end
+                game:GetService("Lighting").GlobalShadows = false
+            end
+        end)
+
+        game:GetService("Lighting"):GetPropertyChangedSignal("Ambient"):Connect(function()
+            if game:GetService("Lighting").Ambient ~= Color3.fromRGB(178, 178, 178) and game:GetService("Lighting").Ambient ~= _G.NormalLightingSettings.Ambient then
+                _G.NormalLightingSettings.Ambient = game:GetService("Lighting").Ambient
+                if not _G.FullBrightEnabled then
+                    repeat
+                        wait()
+                    until _G.FullBrightEnabled
+                end
+                game:GetService("Lighting").Ambient = Color3.fromRGB(178, 178, 178)
+            end
+        end)
+
+        game:GetService("Lighting").Brightness = 1
+        game:GetService("Lighting").ClockTime = 12
+        game:GetService("Lighting").FogEnd = 786543
+        game:GetService("Lighting").GlobalShadows = false
+        game:GetService("Lighting").Ambient = Color3.fromRGB(178, 178, 178)
+
+        local LatestValue = true
+        spawn(function()
+            repeat
+                wait()
+            until _G.FullBrightEnabled
+            while wait() do
+                if _G.FullBrightEnabled ~= LatestValue then
+                    if not _G.FullBrightEnabled then
+                        game:GetService("Lighting").Brightness = _G.NormalLightingSettings.Brightness
+                        game:GetService("Lighting").ClockTime = _G.NormalLightingSettings.ClockTime
+                        game:GetService("Lighting").FogEnd = _G.NormalLightingSettings.FogEnd
+                        game:GetService("Lighting").GlobalShadows = _G.NormalLightingSettings.GlobalShadows
+                        game:GetService("Lighting").Ambient = _G.NormalLightingSettings.Ambient
+                    else
+                        game:GetService("Lighting").Brightness = 1
+                        game:GetService("Lighting").ClockTime = 12
+                        game:GetService("Lighting").FogEnd = 786543
+                        game:GetService("Lighting").GlobalShadows = false
+                        game:GetService("Lighting").Ambient = Color3.fromRGB(178, 178, 178)
+                    end
+                    LatestValue = not LatestValue
+                end
+            end
+        end)
+    end
+
+    _G.FullBrightExecuted = true
+    _G.FullBrightEnabled = not _G.FullBrightEnabled
+end
+
+
+--afk
+local afk = afks:NewSection("MISC")
+afk:NewButton("Create Place", "ALT", function()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1500, 0, 1500)
+    wait(0.1)
+    local baseplate = Instance.new("Part")
+    baseplate.Parent = workspace
+    baseplate.Size = Vector3.new(10000,3,1000)
+    baseplate.Anchored = true
+    baseplate.Name = "Baseplate"
+    baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-2,0)
+    end)
+
+
+    afk:NewButton("spawn", "ButtonInfo", function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(0, 2, 0)
+    end)
+
+    afk:NewButton("back", "ButtonInfo", function()    
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1500, 1, 1500)
+    end)
+
