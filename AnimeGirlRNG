@@ -21,11 +21,11 @@ getgenv().name = true
 Misc:NewToggle("Auto Spin", "Spin", function(nameF)-- Auto Spin
     getgenv().name = nameF
     if nameF then
-        dotp();
+        dospin();
     end
 end)
 
-function dotp()
+function dospin()
     spawn(function()
         while name == true do
             local args = {[1] = 1}
@@ -40,11 +40,11 @@ function dotp()
  Misc:NewToggle("Auto Farm Item", "Item Farm", function(nameA)
      getgenv().farm = nameA
      if nameA then
-         dotp();
+         dofarm();
      end
  end)
  
- function dotp()
+ function dofarm()
      spawn(function()
          while farm == true do
              local args = {[1] = 1}
@@ -59,15 +59,15 @@ function dotp()
   Misc:NewToggle("Auto Farm Item", "Item Farm", function(nameB)
       getgenv().delpoit = nameB
       if nameB then
-          dotp();
+          dodel();
       end
   end)
   
-  function dotp()
+  function dodel()
       spawn(function()
           while delpoit == true do
               local args = {[1] = 1}
-              Farmitem()
+              --test
               wait(3)
           end
       end)
