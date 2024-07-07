@@ -49,7 +49,7 @@ function dotp()
          while farm == true do
              local args = {[1] = 1}
              Farmitem()
-             wait(10)
+             wait(7)
          end
      end)
   end
@@ -74,7 +74,7 @@ function Farmitem()
     keypress(0x45)
     wait(3)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(289.66, 108.2, 97.45)--cave 2 point 1
-    wati(1.5)
+    wait(1.5)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(326.37, 108.2, -33.68)--cave 2 point 2
     wait(0.5)
     keypress(0x45)
