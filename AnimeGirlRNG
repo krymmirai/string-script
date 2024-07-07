@@ -38,7 +38,7 @@ function dotp()
  getgenv().farm = true
 
  Misc:NewToggle("Auto Farm Item", "Item Farm", function(nameA)
-     getgenv().name = nameA
+     getgenv().farm = nameA
      if nameA then
          dotp();
      end
@@ -49,10 +49,30 @@ function dotp()
          while farm == true do
              local args = {[1] = 1}
              Farmitem()
-             wait(7)
+             wait(3)
          end
      end)
   end
+
+  getgenv().delpoit = true
+
+  Misc:NewToggle("Auto Farm Item", "Item Farm", function(nameB)
+      getgenv().delpoit = nameB
+      if nameB then
+          dotp();
+      end
+  end)
+  
+  function dotp()
+      spawn(function()
+          while delpoit == true do
+              local args = {[1] = 1}
+              Farmitem()
+              wait(3)
+          end
+      end)
+   end
+ 
 
 
 
@@ -68,15 +88,17 @@ end)
 
 function Farmitem()
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7.27, 74.72, -163.05)--caves 1
-    wait(0.5)
+    wait(0.3)
     keypress(0x45)
     wait()
     keypress(0x45)
-    wait(3)
+    wait(1)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(289.66, 108.2, 97.45)--cave 2 point 1
-    wait(1.5)
+    wait(0.1)
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(326.37, 108.2, -33.68)--cave 2 point 2
-    wait(0.5)
+    wait(0.1)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(363.01, 110.7, 120.09)
+    wait(0.1)
     keypress(0x45)
     wait()
     keypress(0x45)
