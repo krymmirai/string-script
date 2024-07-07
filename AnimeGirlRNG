@@ -49,7 +49,7 @@ function dotp()
          while farm == true do
              local args = {[1] = 1}
              Farmitem()
-             wait(3)
+             wait(10)
          end
      end)
   end
