@@ -1,20 +1,3 @@
-if not game:IsLoaded() then
-game.Loaded:Wait()
-end
-wait()
-local VirtualUser=game:service'VirtualUser'
-game:service'Players'.LocalPlayer.Idled:connect(function()
-VirtualUser:CaptureController()
-VirtualUser:ClickButton2(Vector2.new())
-end)
-warn("Anti-AFK has loaded")
-wait()
-repeat wait() until game:FindService("VirtualUser") or game:FindService("VirtualInputManager")
-   print("virtualinputmanager is no fun")
-wait()
-for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
-v:Disable()
-end
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Zero2 Hub", "DarkTheme")
 
@@ -85,7 +68,7 @@ function dospin()
           while delpoit == true do
               local args = {[1] = 1}
               delpotions()
-              wait(3)
+              wait(0.3)
           end
       end)
    end
@@ -101,21 +84,21 @@ end)
 
 function delpotions()
     plum()
-    wait(0.5)
+    wait(1)
     weak()
-    wait(0.5)
+    wait(1)
     denago()
-    wait(0.5)
+    wait(1)
     ruby()
-    wait(0.5)
+    wait(1)
     ray()
-    wait(0.5)
+    wait(1)
     viridian()
-    wait(0.5)
+    wait(1)
     ashen()
-    wait(0.5)
+    wait(1)
     cerulean()
-    wait(0.5)
+    wait(1)
     fuchsia()
 end
 
