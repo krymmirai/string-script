@@ -30,7 +30,7 @@ function dospin()
         while name == true do
             local args = {[1] = 1}
             game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSummonRequest:FireServer(5)
-            wait(0.3)
+            wait(0.1)
         end
     end)
  end
@@ -67,7 +67,7 @@ function dospin()
       spawn(function()
           while delpoit == true do
               local args = {[1] = 1}
-              delpotions()
+              delboost()
               wait(0.3)
           end
       end)
@@ -82,25 +82,7 @@ Misc:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.P, function()
 end)
 
 
-function delpotions()
-    plum()
-    wait(1)
-    weak()
-    wait(1)
-    denago()
-    wait(1)
-    ruby()
-    wait(1)
-    ray()
-    wait(1)
-    viridian()
-    wait(1)
-    ashen()
-    wait(1)
-    cerulean()
-    wait(1)
-    fuchsia()
-end
+
 
 
 
@@ -123,71 +105,55 @@ function Farmitem()
 end
 
 
-function plum()
+function delboost()
     local args = {
         [1] = "Plum Purity"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-
-function weak()
+wait(1)
     local args = {
         [1] = "Weak Starpurge"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-
-function denago()
+wait(1)
     local args = {
         [1] = "De Nago"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-
-function ruby()
+wait(1)
     local args = {
         [1] = "Ruby Respite"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-
-function ray()
+wait(1)
     local args = {
         [1] = "Ray Remedy"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-
-function viridian()
+wait(1)
     local args = {
         [1] = "Viridian Veil"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-
-function ashen()
+wait(1)
     local args = {
         [1] = "Ashen Silver"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-
-function cerulean()
+wait(1)
     local args = {
         [1] = "Cerulean"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-
-function fuchsia()
+wait(1)
     local args = {
         [1] = "Fuchsia Fizz"
     }
