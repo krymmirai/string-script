@@ -68,7 +68,7 @@ function dospin()
          while farm == true do
              local args = {[1] = 1}
              Farmitem()
-             wait(18)
+             wait(3)
          end
      end)
   end
