@@ -142,18 +142,18 @@ function Farmitem()
 end
 --Sboost Function
 getgenv().plumpo = true
-Sboost:NewToggle("Plum Purity", "Potions Sell", function(name1)
-    getgenv().plumpo = name1
-    if name1 then
-        doplum();
+Sboost:NewToggle("Use Milk", "Potions Sell", function(aaa)
+    getgenv().plumpo = aaa
+    if aaa then
+        domilk();
     end
 end)
 
-function doplum()
+function domilk()
     spawn(function()
         while plumpo == true do
             local args = {[1] = 1}
-            plum()
+            usemilk()
             wait(0.3)
         end
     end)
@@ -369,4 +369,13 @@ function fuchsia()
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
+end
+--use potions
+function usemilk()
+local args = {
+    [1] = "use_potion",
+    [2] = "Choco Milk"
+}
+
+game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendEquipRequest:FireServer(unpack(args))
 end
