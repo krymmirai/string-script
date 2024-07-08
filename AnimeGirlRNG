@@ -123,6 +123,7 @@ function Farmitem()
     keypress(0x45)
     wait()
     keypress(0x45)
+wait(3)
 end
 --Sboost Function
 getgenv().plumpo = true
