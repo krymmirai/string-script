@@ -3,11 +3,17 @@ local Window = Library.CreateLib("Zero2 Hub", "DarkTheme")
 
 
 local Tab = Window:NewTab("Misc")
+local AutoFarm = Window:NewTab("Auto Farm")
+local SellBoost = Window:NewTab("Sell Position")
+
 
 
 local Misc = Tab:NewSection("Misc")
+local Afarm = AutoFarm:NewSection("Farm")
+local Sboost = SellBoost:NewSection("Sell")
 
 
+--Misc
 Misc:NewButton("Bypass Hold", "ButtonInfo", function()
     for i, v in pairs(workspace:GetDescendants()) do
         if v.ClassName == "ProximityPrompt" then
@@ -16,9 +22,22 @@ Misc:NewButton("Bypass Hold", "ButtonInfo", function()
         end
 end)
 
+Misc:NewButton("Blacksmith", "ButtonInfo", function()
+    local args = {
+        [1] = "Blacksmith",
+        [2] = 1,
+        [3] = 1
+    }
+    
+    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendDialogueRequest:FireServer(unpack(args))
+    
+end)
+
+--Afarm
+
 getgenv().name = true
 
-Misc:NewToggle("Auto Spin", "Spin", function(nameF)-- Auto Spin
+Afarm:NewToggle("Auto Spin", "Spin", function(nameF)-- Auto Spin
     getgenv().name = nameF
     if nameF then
         dospin();
@@ -37,7 +56,7 @@ function dospin()
 
  getgenv().farm = true
 
- Misc:NewToggle("Auto Farm Item", "Item Farm", function(nameA)
+ Afarm:NewToggle("Auto Farm Item", "Item Farm", function(nameA)
      getgenv().farm = nameA
      if nameA then
          dofarm();
@@ -56,7 +75,9 @@ function dospin()
 
   getgenv().delpoit = true
 
-  Misc:NewToggle("Auto Sell Potions", "Potions Sell", function(nameB)
+--Sboost
+
+Sboost:NewToggle("Auto Sell Potions", "Potions Sell", function(nameB)
       getgenv().delpoit = nameB
       if nameB then
           dodel();
@@ -82,7 +103,7 @@ Misc:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.P, function()
 end)
 
 
-
+--new
 
 
 
@@ -103,57 +124,230 @@ function Farmitem()
     wait()
     keypress(0x45)
 end
+--Sboost Function
+getgenv().plumpo = true
+Sboost:NewToggle("Plum Purity", "Potions Sell", function(name1)
+    getgenv().plumpo = name1
+    if name1 then
+        doplum();
+    end
+end)
+
+function doplum()
+    spawn(function()
+        while plumpo == true do
+            local args = {[1] = 1}
+            plum()
+            wait(0.3)
+        end
+    end)
+ end
 
 
-function delboost()
+ getgenv().weakpo = true
+Sboost:NewToggle("Weak Starpurge", "Potions Sell", function(name2)
+    getgenv().weakpo = name2
+    if name2 then
+        doweak();
+    end
+end)
+
+function doweak()
+    spawn(function()
+        while weakpo == true do
+            local args = {[1] = 1}
+            weak()
+            wait(0.3)
+        end
+    end)
+ end
+
+ getgenv().denagopo = true
+ Sboost:NewToggle("De Nago", "Potions Sell", function(name3)
+     getgenv().denagopo = name3
+     if name3 then
+         dodenago();
+     end
+ end)
+ 
+ function dodenago()
+     spawn(function()
+         while denagopo == true do
+             local args = {[1] = 1}
+             denago()
+             wait(0.3)
+         end
+     end)
+  end
+
+  getgenv().rubypo = true
+  Sboost:NewToggle("Ruby Respite", "Potions Sell", function(name4)
+      getgenv().rubypo = name4
+      if name4 then
+          doruby();
+      end
+  end)
+  
+  function doruby()
+      spawn(function()
+          while rubypo == true do
+              local args = {[1] = 1}
+              ruby()
+              wait(0.3)
+          end
+      end)
+   end
+
+   getgenv().raypo = true
+   Sboost:NewToggle("Ray Remedy", "Potions Sell", function(name5)
+       getgenv().raypo = name5
+       if name5 then
+           doray();
+       end
+   end)
+   
+   function doray()
+       spawn(function()
+           while raypo == true do
+               local args = {[1] = 1}
+               ray()
+               wait(0.3)
+           end
+       end)
+    end
+
+
+    getgenv().viridianpo = true
+    Sboost:NewToggle("Viridian Veil", "Potions Sell", function(name6)
+        getgenv().viridianpo = name6
+        if name6 then
+            doviridian();
+        end
+    end)
+    
+    function doviridian()
+        spawn(function()
+            while viridianpo == true do
+                local args = {[1] = 1}
+                viridian()
+                wait(0.3)
+            end
+        end)
+     end
+
+     getgenv().ashenpo = true
+     Sboost:NewToggle("Ashen Silver", "Potions Sell", function(name7)
+         getgenv().ashenpo = name7
+         if name7 then
+             doashen();
+         end
+     end)
+     
+     function doashen()
+         spawn(function()
+             while ashenpo == true do
+                 local args = {[1] = 1}
+                 ashen()
+                 wait(0.3)
+             end
+         end)
+      end
+
+
+      getgenv().ceruleanpo = true
+      Sboost:NewToggle("Cerulean", "Potions Sell", function(name8)
+          getgenv().ceruleanpo = name8
+          if name8 then
+              docerulean();
+          end
+      end)
+      
+      function docerulean()
+          spawn(function()
+              while ceruleanpo == true do
+                  local args = {[1] = 1}
+                  cerulean()
+                  wait(0.3)
+              end
+          end)
+       end
+
+       getgenv().fuchsiapo = true
+       Sboost:NewToggle("Fuchsia Fizz", "Potions Sell", function(name9)
+           getgenv().fuchsiapo = name9
+           if name9 then
+               dofuchsia();
+           end
+       end)
+       
+       function dofuchsia()
+           spawn(function()
+               while fuchsiapo == true do
+                   local args = {[1] = 1}
+                   fuchsia()
+                   wait(0.3)
+               end
+           end)
+        end
+
+
+function plum()
     local args = {
         [1] = "Plum Purity"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-wait(1)
+end
+function weak()
     local args = {
         [1] = "Weak Starpurge"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-wait(1)
+end
+function denago()
     local args = {
         [1] = "De Nago"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-wait(1)
+end
+function ruby()
     local args = {
         [1] = "Ruby Respite"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-wait(1)
+end
+function ray()
     local args = {
         [1] = "Ray Remedy"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-wait(1)
+end
+function viridian()
     local args = {
         [1] = "Viridian Veil"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-wait(1)
+end
+function ashen()
     local args = {
         [1] = "Ashen Silver"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-wait(1)
+end
+function cerulean()
     local args = {
         [1] = "Cerulean"
     }
     
     game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-wait(1)
+end
+function fuchsia()
     local args = {
         [1] = "Fuchsia Fizz"
     }
