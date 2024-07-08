@@ -68,7 +68,7 @@ function dospin()
          while farm == true do
              local args = {[1] = 1}
              Farmitem()
-             wait(5)
+             wait(18)
          end
      end)
   end
@@ -88,7 +88,23 @@ Sboost:NewToggle("Auto Sell Potions", "Potions Sell", function(nameB)
       spawn(function()
           while delpoit == true do
               local args = {[1] = 1}
-              delboost()
+              fuchsia()
+wait(1)
+cerulean()
+wait(1)
+ashen()
+wait(1)
+viridian()
+wait(1)
+ray()
+wait(1)
+ruby()
+wait(1)
+denago()
+wait(1)
+weak()
+wait(1)
+plum()
               wait(0.3)
           end
       end)
@@ -123,7 +139,6 @@ function Farmitem()
     keypress(0x45)
     wait()
     keypress(0x45)
-wait(5)
 end
 --Sboost Function
 getgenv().plumpo = true
