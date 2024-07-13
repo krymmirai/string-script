@@ -1,398 +1,171 @@
 if not game:IsLoaded() then
-game.Loaded:Wait()
-end
-wait()
-local VirtualUser=game:service'VirtualUser'
-game:service'Players'.LocalPlayer.Idled:connect(function()
-VirtualUser:CaptureController()
-VirtualUser:ClickButton2(Vector2.new())
-end)
-warn("Anti-AFK has loaded")
-wait()
-repeat wait() until game:FindService("VirtualUser") or game:FindService("VirtualInputManager")
-   print("virtualinputmanager is no fun")
-wait()
-for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
-v:Disable()
-end
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Zero2 Hub", "DarkTheme")
-
-
-local Tab = Window:NewTab("Misc")
-local AutoFarm = Window:NewTab("Auto Farm")
-local SellBoost = Window:NewTab("Sell Position")
-
-
-
-local Misc = Tab:NewSection("Misc")
-local Afarm = AutoFarm:NewSection("Farm")
-local Sboost = SellBoost:NewSection("Sell")
-
-
---Misc
-Misc:NewButton("Bypass Hold", "ButtonInfo", function()
-    for i, v in pairs(workspace:GetDescendants()) do
-        if v.ClassName == "ProximityPrompt" then
-        v.HoldDuration = 0
-        end
-        end
-end)
-
-Misc:NewButton("Blacksmith", "ButtonInfo", function()
-    local args = {
-        [1] = "Blacksmith",
-        [2] = 1,
-        [3] = 1
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendDialogueRequest:FireServer(unpack(args))
-    
-end)
-
---Afarm
-
-getgenv().name = true
-
-Afarm:NewToggle("Auto Spin", "Spin", function(nameF)-- Auto Spin
-    getgenv().name = nameF
-    if nameF then
-        dospin();
+    game.Loaded:Wait()
     end
-end)
-
-function dospin()
-    spawn(function()
-        while name == true do
-            local args = {[1] = 1}
-            game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSummonRequest:FireServer(5)
-            wait(0.1)
-        end
-    end)
- end
-
- getgenv().farm = true
-
- Afarm:NewToggle("Auto Farm Item", "Item Farm", function(nameA)
-     getgenv().farm = nameA
-     if nameA then
-         dofarm();
-     end
- end)
- 
- function dofarm()
-     spawn(function()
-         while farm == true do
-             local args = {[1] = 1}
-             Farmitem()
-             wait(3)
-         end
-     end)
-  end
-
-  getgenv().delpoit = true
-
---Sboost
-
-Sboost:NewToggle("Auto Sell Potions", "Potions Sell", function(nameB)
-      getgenv().delpoit = nameB
-      if nameB then
-          dodel();
-      end
-  end)
-  
-  function dodel()
-      spawn(function()
-          while delpoit == true do
-              local args = {[1] = 1}
-              fuchsia()
-wait(1)
-cerulean()
-wait(1)
-ashen()
-wait(1)
-viridian()
-wait(1)
-ray()
-wait(1)
-ruby()
-wait(1)
-denago()
-wait(1)
-weak()
-wait(1)
-plum()
-              wait(0.3)
-          end
-      end)
-   end
- 
-
-
-
-
-Misc:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.P, function()
-	Library:ToggleUI()
-end)
-
-
---new
-
-
-
-function Farmitem()
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-7.27, 74.72, -163.05)--caves 1
-    wait(0.3)
-    keypress(0x45)
     wait()
-    keypress(0x45)
-    wait(1)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(289.66, 108.2, 97.45)--cave 2 point 1
-    wait(0.1)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(326.37, 108.2, -33.68)--cave 2 point 2
-    wait(0.1)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(363.01, 110.7, 120.09)
-    wait(0.1)
-    keypress(0x45)
+    local VirtualUser=game:service'VirtualUser'
+    game:service'Players'.LocalPlayer.Idled:connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+    end)
+    warn("Anti-AFK has loaded")
     wait()
-    keypress(0x45)
-end
---Sboost Function
-getgenv().plumpo = true
-Sboost:NewToggle("Use Milk", "Potions Sell", function(aaa)
-    getgenv().plumpo = aaa
-    if aaa then
-        domilk();
+    repeat wait() until game:FindService("VirtualUser") or game:FindService("VirtualInputManager")
+       print("virtualinputmanager is no fun")
+    wait()
+    for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+    v:Disable()
     end
-end)
-
-function domilk()
-    spawn(function()
-        while plumpo == true do
-            local args = {[1] = 1}
-            usemilk()
-            wait(0.3)
-        end
+    local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Zero2 Hub", "DarkTheme")
+    
+    
+    local Tab = Window:NewTab("Misc")
+    local AutoFarm = Window:NewTab("Auto Farm")
+    local SellBoost = Window:NewTab("Sell Position")
+    
+    
+    
+    local Misc = Tab:NewSection("Misc")
+    local Afarm = AutoFarm:NewSection("Farm")
+    local Sboost = SellBoost:NewSection("Sell")
+    
+    
+    --Misc
+    Misc:NewButton("Bypass Hold", "ButtonInfo", function()
+        for i, v in pairs(workspace:GetDescendants()) do
+            if v.ClassName == "ProximityPrompt" then
+            v.HoldDuration = 0
+            end
+            end
     end)
- end
-
-
- getgenv().weakpo = true
-Sboost:NewToggle("Weak Starpurge", "Potions Sell", function(name2)
-    getgenv().weakpo = name2
-    if name2 then
-        doweak();
-    end
-end)
-
-function doweak()
-    spawn(function()
-        while weakpo == true do
-            local args = {[1] = 1}
-            weak()
-            wait(0.3)
-        end
+    
+    Misc:NewButton("Blacksmith", "ButtonInfo", function()
+        local args = {
+            [1] = "Blacksmith",
+            [2] = 1,
+            [3] = 1
+        }
+        
+        game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendDialogueRequest:FireServer(unpack(args))
+        
     end)
- end
-
- getgenv().denagopo = true
- Sboost:NewToggle("De Nago", "Potions Sell", function(name3)
-     getgenv().denagopo = name3
-     if name3 then
-         dodenago();
-     end
- end)
- 
- function dodenago()
-     spawn(function()
-         while denagopo == true do
-             local args = {[1] = 1}
-             denago()
-             wait(0.3)
-         end
-     end)
-  end
-
-  getgenv().rubypo = true
-  Sboost:NewToggle("Ruby Respite", "Potions Sell", function(name4)
-      getgenv().rubypo = name4
-      if name4 then
-          doruby();
-      end
-  end)
-  
-  function doruby()
-      spawn(function()
-          while rubypo == true do
-              local args = {[1] = 1}
-              ruby()
-              wait(0.3)
-          end
-      end)
-   end
-
-   getgenv().raypo = true
-   Sboost:NewToggle("Ray Remedy", "Potions Sell", function(name5)
-       getgenv().raypo = name5
-       if name5 then
-           doray();
-       end
-   end)
-   
-   function doray()
-       spawn(function()
-           while raypo == true do
-               local args = {[1] = 1}
-               ray()
-               wait(0.3)
-           end
-       end)
-    end
-
-
-    getgenv().viridianpo = true
-    Sboost:NewToggle("Viridian Veil", "Potions Sell", function(name6)
-        getgenv().viridianpo = name6
-        if name6 then
-            doviridian();
+    
+    --Afarm
+    
+    getgenv().name = true
+    
+    Afarm:NewToggle("Auto Spin", "Spin", function(nameF)-- Auto Spin
+        getgenv().name = nameF
+        if nameF then
+            dospin();
         end
     end)
     
-    function doviridian()
+    function dospin()
         spawn(function()
-            while viridianpo == true do
+            while name == true do
                 local args = {[1] = 1}
-                viridian()
+                game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSummonRequest:FireServer(5)
+                wait(0.1)
+            end
+        end)
+     end
+    
+     getgenv().farm = true
+    
+     Afarm:NewToggle("Auto Farm Item", "Item Farm", function(nameA)
+         getgenv().farm = nameA
+         if nameA then
+             dofarm();
+         end
+     end)
+     
+     function dofarm()
+         spawn(function()
+             while farm == true do
+                 local args = {[1] = 1}
+                 Farmitem()
+                 wait(3)
+             end
+         end)
+      end
+    
+      getgenv().delpoit = true
+    
+    --Sboost
+    
+
+    
+    
+    
+    
+    Misc:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.P, function()
+        Library:ToggleUI()
+    end)
+    
+    
+    --new
+    
+    
+    
+    function Farmitem()
+
+--dungeon 1
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18.42, -87.83, -26.39)--cave 2 point 1
+        wait(0.3)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(150.52, -87.83, -11.58)--cave 2 point 2
+        wait(0.3)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(169.5, -85.33, -62.02) --chest
+        wait(0.3)
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game) 
+        wait()
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game)
+        wait()
+--dungeon 2
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(185.85, -155.65, 686.98) --point 1
+wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-25, -155.6, 504.11) --point 2
+wait(0.3)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(72.33, -157.3, 455.51)
+wait(0.3)
+game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game)
+        wait()
+game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game)
+    end
+    --Sboost Function
+    getgenv().plumpo = true
+    Sboost:NewToggle("Use Milk", "Potions Sell", function(aaa)
+        getgenv().plumpo = aaa
+        if aaa then
+            domilk();
+        end
+    end)
+    
+    function domilk()
+        spawn(function()
+            while plumpo == true do
+                local args = {[1] = 1}
+                usemilk()
                 wait(0.3)
             end
         end)
      end
 
-     getgenv().ashenpo = true
-     Sboost:NewToggle("Ashen Silver", "Potions Sell", function(name7)
-         getgenv().ashenpo = name7
-         if name7 then
-             doashen();
-         end
-     end)
-     
-     function doashen()
-         spawn(function()
-             while ashenpo == true do
-                 local args = {[1] = 1}
-                 ashen()
-                 wait(0.3)
-             end
-         end)
-      end
+     Sboost:NewButton("Sell all Potions", "ButtonInfo", function()
+        local args = {
+            [1] = "sell_all"
+        }
+        
+        game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
+    end)
+    --use potions
+    function usemilk()
+    local args = {
+        [1] = "use_potion",
+        [2] = "Choco Milk"
+    }
+    
+    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendEquipRequest:FireServer(unpack(args))
+    end
 
 
-      getgenv().ceruleanpo = true
-      Sboost:NewToggle("Cerulean", "Potions Sell", function(name8)
-          getgenv().ceruleanpo = name8
-          if name8 then
-              docerulean();
-          end
-      end)
-      
-      function docerulean()
-          spawn(function()
-              while ceruleanpo == true do
-                  local args = {[1] = 1}
-                  cerulean()
-                  wait(0.3)
-              end
-          end)
-       end
-
-       getgenv().fuchsiapo = true
-       Sboost:NewToggle("Fuchsia Fizz", "Potions Sell", function(name9)
-           getgenv().fuchsiapo = name9
-           if name9 then
-               dofuchsia();
-           end
-       end)
-       
-       function dofuchsia()
-           spawn(function()
-               while fuchsiapo == true do
-                   local args = {[1] = 1}
-                   fuchsia()
-                   wait(0.3)
-               end
-           end)
-        end
-
-
-function plum()
-    local args = {
-        [1] = "Plum Purity"
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-function weak()
-    local args = {
-        [1] = "Weak Starpurge"
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-function denago()
-    local args = {
-        [1] = "De Nago"
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-function ruby()
-    local args = {
-        [1] = "Ruby Respite"
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-function ray()
-    local args = {
-        [1] = "Ray Remedy"
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-function viridian()
-    local args = {
-        [1] = "Viridian Veil"
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-function ashen()
-    local args = {
-        [1] = "Ashen Silver"
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-function cerulean()
-    local args = {
-        [1] = "Cerulean"
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
-function fuchsia()
-    local args = {
-        [1] = "Fuchsia Fizz"
-    }
-    
-    game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendSellRequest:FireServer(unpack(args))
-end
---use potions
-function usemilk()
-local args = {
-    [1] = "use_potion",
-    [2] = "Choco Milk"
-}
-
-game:GetService("ReplicatedStorage").CORE_RemoteEvents.SendEquipRequest:FireServer(unpack(args))
-end
