@@ -151,7 +151,7 @@ local a = a.LocalPlayer
 local c = game:GetService("Workspace")
 local d = game:GetService("UserInputService")
 local e
-local f = false
+local f = true
 local j = 1250
 local l
 local m
