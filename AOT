@@ -144,14 +144,14 @@ k.TextSize = 14.000
 
 b.Draggable = true
 b.Selectable = true
-b.Active = true
+b.Active = false
 
 local a = game:GetService("Players")
 local a = a.LocalPlayer
 local c = game:GetService("Workspace")
 local d = game:GetService("UserInputService")
 local e
-local f = true
+local f = false
 local j = 1250
 local l
 local m
