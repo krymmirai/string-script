@@ -1,0 +1,7 @@
+wait(1200)
+placeid = 18544684188  --change this to the place id you want
+tp = game:GetService('TeleportService')
+
+for i,v in pairs (game.Players:GetChildren()) do
+    tp:Teleport(placeid, v)
+end
