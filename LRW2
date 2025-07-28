@@ -48,7 +48,7 @@ local Del = Window:NewTab("Delete Item")
 --Del Item
 local delitem = Del:NewSection("test")
 
-del:NewButton("creat place", "ButtonInfo", function()
+delitem:NewButton("creat place", "ButtonInfo", function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1, 290, 2)    
 local baseplate = Instance.new("Part")
     baseplate.Parent = workspace
@@ -57,13 +57,13 @@ local baseplate = Instance.new("Part")
     baseplate.Name = "Baseplate"
     baseplate.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
 end)
-auto:NewButton("Pick Active", "ButtonInfo", function()
+delitem:NewButton("Pick Active", "ButtonInfo", function()
 while task.wait() do
     game:GetService("Players").LocalPlayer.Character:WaitForChild("PickAxe"):WaitForChild("SwordScript"):WaitForChild("Activate"):FireServer()
 end
 end)
 
-auto:NewToggle("Auto switch", "name", function(nameBB)
+delitem:NewToggle("Auto switch", "name", function(nameBB)
     getgenv().name = nameBB
     if nameBB then
         Pickactive();
@@ -80,7 +80,7 @@ game:GetService("Players").LocalPlayer.Character:WaitForChild("PickAxe"):WaitFor
     end)
 end
 
-auto:NewToggle("Auto switch dragon stone", "name", function(nameF)
+delitem:NewToggle("Auto switch dragon stone", "name", function(nameF)
     getgenv().name = nameF
     if nameF then
         dash();
@@ -106,7 +106,7 @@ function dash()
         end
     end)
 end
-auto:NewToggle("Auto Fish", "name", function(nameA)
+delitem:NewToggle("Auto Fish", "name", function(nameA)
     getgenv().name2 = nameA
     if nameA then
         fish();
